@@ -1,0 +1,35 @@
+.urls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1180px;
+  margin: 24px auto 0;
+}
+
+.urls div {
+  min-width: 0;
+  border-top: 1px solid #d8d2c8;
+  padding-top: 12px;
+}
+
+.urls dt {
+  color: #8c312f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.urls dd {
+  margin: 4px 0 0;
+  overflow: hidden;
+  color: #3d3631;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .urls {
+    grid-template-columns: 1fr;
+  }
+}

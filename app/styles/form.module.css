@@ -1,0 +1,62 @@
+.panel {
+  align-self: start;
+  display: grid;
+  gap: 16px;
+  border: 1px solid #d8d2c8;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  color: #8c312f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #cfc7bc;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #161616;
+  font: inherit;
+  padding: 0 12px;
+}
+
+.field input[type="file"] {
+  padding: 10px;
+}
+
+.submitButton {
+  min-height: 44px;
+  border: 1px solid #8c312f;
+  border-radius: 6px;
+  background: #8c312f;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.submitButton:disabled {
+  border-color: #d8d2c8;
+  background: #ded8cf;
+  color: #746c62;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  color: #aa1f24;
+  font-weight: 700;
+}
