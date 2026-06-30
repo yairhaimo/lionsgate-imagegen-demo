@@ -21,4 +21,8 @@
 .error {
   color: #ffb3b3;
   font-weight: 700;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+  white-space: normal;
 }
