@@ -1,11 +1,12 @@
 .panel {
   align-self: start;
   display: grid;
-  gap: 16px;
-  border: 1px solid #d8d2c8;
-  border-radius: 8px;
-  background: #ffffff;
-  padding: 18px;
+  gap: 1.25rem;
+  border: 1px solid #3b2424;
+  border-radius: 6px;
+  background: rgba(19, 15, 15, 0.95);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  padding: 1.25rem;
 }
 
 .field {
@@ -14,49 +15,71 @@
 }
 
 .field span {
-  color: #8c312f;
+  color: #d7c9c1;
   font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 900;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .field input,
 .field select {
   width: 100%;
-  min-height: 44px;
-  border: 1px solid #cfc7bc;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #161616;
+  min-height: 48px;
+  border: 1px solid #4a3332;
+  border-radius: 4px;
+  background: #090808;
+  color: #ffffff;
   font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  outline: none;
   padding: 0 12px;
+  transition: border-color 160ms ease;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #d7c9c1;
 }
 
 .field input[type="file"] {
+  border-style: dashed;
+  border-color: #6e5552;
+  color: #d7c9c1;
   padding: 10px;
 }
 
 .submitButton {
-  min-height: 44px;
-  border: 1px solid #8c312f;
-  border-radius: 6px;
-  background: #8c312f;
-  color: #ffffff;
+  min-height: 48px;
+  border: 0;
+  border-radius: 4px;
+  background: #e8e0d6;
+  color: #130f0f;
   font: inherit;
-  font-weight: 800;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #ffffff;
 }
 
 .submitButton:disabled {
-  border-color: #d8d2c8;
-  background: #ded8cf;
-  color: #746c62;
+  background: #574946;
+  color: #9f918c;
   cursor: not-allowed;
 }
 
 .error {
   margin: 0;
-  color: #aa1f24;
+  color: #ffb3b3;
   font-weight: 700;
 }

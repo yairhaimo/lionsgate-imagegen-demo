@@ -1,0 +1,29 @@
+.pfpGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pfpGrid a {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid #3b2424;
+  border-radius: 999px;
+  background: #080707;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.pfpGrid a:hover {
+  border-color: #e8e0d6;
+  box-shadow: 0 18px 46px rgba(232, 224, 214, 0.18);
+}
+
+.pfpGrid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

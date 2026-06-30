@@ -1,95 +1,66 @@
 .page {
   min-height: 100vh;
-  padding: 32px;
-  background: #f6f4f0;
-  color: #161616;
-}
-
-.header {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
-  max-width: 1180px;
-  margin: 0 auto 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #d8d2c8;
-}
-
-.header h1 {
-  margin: 4px 0 0;
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  line-height: 0.95;
-}
-
-.eyebrow,
-.status {
-  margin: 0;
-  color: #8c312f;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.status {
-  padding: 8px 10px;
-  border: 1px solid #d8d2c8;
-  border-radius: 6px;
-  background: #ffffff;
-}
-
-.modeSwitch {
-  display: flex;
-  gap: 8px;
-  max-width: 1180px;
-  margin: 0 auto 24px;
-}
-
-.modeButton {
-  min-height: 44px;
-  padding: 0 16px;
-  border: 1px solid #cfc7bc;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #3d3631;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.modeButtonActive {
-  border-color: #8c312f;
-  background: #8c312f;
-  color: #ffffff;
+  overflow: hidden;
+  background: #080707;
+  color: #f5efe8;
 }
 
 .layout,
 .previewGrid {
   display: grid;
-  gap: 24px;
-  max-width: 1180px;
+  gap: 1.75rem;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
 .layout {
-  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  position: relative;
+  grid-template-columns: minmax(300px, 390px) minmax(0, 1fr);
+  min-height: calc(100vh - 135px);
+  padding: clamp(2rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2rem);
+}
+
+.layout::before,
+.layout::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.layout::before {
+  background:
+    linear-gradient(
+      115deg,
+      rgba(151, 22, 32, 0.24) 0%,
+      rgba(8, 7, 7, 0.72) 38%,
+      #080707 76%
+    ), linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 28%);
+}
+
+.layout::after {
+  height: 7rem;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 0,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 96px
+  );
+  opacity: 0.35;
+}
+
+.layout > * {
+  position: relative;
+  z-index: 1;
 }
 
 .previewGrid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(240px, 0.9fr) minmax(260px, 1.1fr);
 }
 
 @media (max-width: 900px) {
-  .page {
-    padding: 20px;
-  }
-
-  .header,
-  .modeSwitch {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
   .layout,
   .previewGrid {
     grid-template-columns: 1fr;

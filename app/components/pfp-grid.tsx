@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "../styles/preview.module.css";
+import styles from "../styles/pfp-grid.module.css";
 
 export function PfpGrid({ urls }: { urls: string[] }) {
   return (

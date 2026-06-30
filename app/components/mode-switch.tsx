@@ -1,6 +1,6 @@
 import { modeOptions } from "../playground-options";
 import type { Mode } from "../playground-types";
-import styles from "../styles/layout.module.css";
+import styles from "../styles/mode-switch.module.css";
 
 export function ModeSwitch({
   mode,

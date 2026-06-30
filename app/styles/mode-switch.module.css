@@ -1,0 +1,32 @@
+.modeSwitch {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  border-bottom: 1px solid #391115;
+  background: #56090f;
+  padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+.modeButton {
+  flex: 0 0 auto;
+  min-height: 54px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #bfa4a6;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.modeButtonActive {
+  border-bottom-color: #ffffff;
+  background: transparent;
+  color: #ffffff;
+}

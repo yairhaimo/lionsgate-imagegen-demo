@@ -1,8 +1,8 @@
 .panel {
-  border: 1px solid #d8d2c8;
-  border-radius: 8px;
-  background: #ffffff;
-  padding: 18px;
+  overflow: hidden;
+  border: 1px solid #3b2424;
+  border-radius: 6px;
+  background: #0d0b0b;
 }
 
 .panelHeading {
@@ -10,29 +10,40 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 14px;
+  min-height: 44px;
+  border-bottom: 1px solid #3b2424;
+  padding: 0 1rem;
 }
 
 .panelHeading h2 {
   margin: 0;
-  font-size: 1rem;
+  color: #a88f8c;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .panelHeading span {
-  color: #8c312f;
+  color: #a88f8c;
   font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 900;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .imageFrame {
   display: grid;
   place-items: center;
-  min-height: 420px;
+  min-height: 316px;
   overflow: hidden;
-  border-radius: 6px;
-  background: #211d1d;
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(242, 216, 163, 0.12),
+      transparent 28%
+    ), linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 44%),
+    #151111;
 }
 
 .imageFrame img {
@@ -45,30 +56,13 @@
 .emptyState {
   display: grid;
   place-items: center;
-  min-height: 220px;
-  color: #877e73;
-  font-weight: 800;
-}
-
-.pfpGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.pfpGrid a {
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 1;
-  border: 1px solid #d8d2c8;
-  border-radius: 999px;
-  background: #211d1d;
-}
-
-.pfpGrid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  min-height: 260px;
+  color: #766965;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 @media (max-width: 900px) {

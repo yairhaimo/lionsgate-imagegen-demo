@@ -1,29 +1,31 @@
 .urls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  max-width: 1180px;
-  margin: 24px auto 0;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2rem) 3rem;
+  background: #080707;
 }
 
 .urls div {
   min-width: 0;
-  border-top: 1px solid #d8d2c8;
+  border-top: 1px solid #3b2424;
   padding-top: 12px;
 }
 
 .urls dt {
-  color: #8c312f;
+  color: #a88f8c;
   font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .urls dd {
   margin: 4px 0 0;
   overflow: hidden;
-  color: #3d3631;
+  color: #d7c9c1;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
