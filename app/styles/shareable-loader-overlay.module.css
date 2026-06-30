@@ -1,0 +1,30 @@
+.overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(8 7 7 / 42%);
+  backdrop-filter: blur(1px);
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 50% 46%,
+      transparent 0%,
+      transparent 33%,
+      rgb(8 7 7 / 46%) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(242 216 163 / 12%),
+      transparent 30%,
+      rgb(207 49 61 / 14%)
+    );
+}

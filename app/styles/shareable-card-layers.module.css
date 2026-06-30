@@ -1,0 +1,69 @@
+.face,
+.surface {
+  position: absolute;
+  overflow: hidden;
+}
+
+.face {
+  inset: 0;
+  border-radius: 7px;
+  background: #080707;
+}
+
+.faceGradient,
+.imageShade,
+.ring {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.faceGradient {
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 22%) 0%,
+    transparent 18%,
+    transparent 72%,
+    rgb(255 255 255 / 10%) 100%
+  );
+}
+
+.surface {
+  inset: 10px;
+  border-radius: 5px;
+  background: #151111;
+  transform: translateZ(46px);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 500ms,
+    filter 500ms;
+}
+
+.imagePartial {
+  filter: blur(5px);
+  transform: scale(1.03);
+}
+
+.imageShade {
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 10%),
+    transparent 18%,
+    transparent 78%,
+    rgb(0 0 0 / 24%)
+  );
+}
+
+.ring {
+  inset: 10px;
+  border-radius: 5px;
+  box-shadow:
+    inset 0 0 28px rgb(0 0 0 / 52%),
+    0 0 0 1px rgb(255 255 255 / 20%);
+  transform: translateZ(50px);
+}

@@ -1,0 +1,63 @@
+.glow,
+.glare,
+.shine {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.glow {
+  inset: -1rem;
+  z-index: -1;
+  background: conic-gradient(
+    from 210deg at 50% 50%,
+    transparent 0deg,
+    rgb(210 28 42 / 36%) 54deg,
+    rgb(245 228 188 / 42%) 104deg,
+    transparent 162deg
+  );
+  filter: blur(18px);
+  opacity: 0.75;
+  transform: translateZ(-44px);
+}
+
+.glare,
+.shine {
+  inset: 0;
+}
+
+.glare {
+  background: radial-gradient(
+    circle at var(--card-glare-x) var(--card-glare-y),
+    rgb(255 255 255 / 92%) 0%,
+    rgb(255 228 172 / 48%) 13%,
+    rgb(255 255 255 / 16%) 28%,
+    transparent 56%
+  );
+  mix-blend-mode: screen;
+  opacity: var(--card-glare-opacity);
+  transition: opacity 200ms;
+}
+
+.shine {
+  background: linear-gradient(
+    112deg,
+    transparent 23%,
+    rgb(255 255 255 / 46%) 35%,
+    rgb(255 255 255 / 10%) 44%,
+    transparent 58%
+  );
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glare,
+  .shine {
+    display: none;
+  }
+}
+
+.stage:hover .shine {
+  opacity: 0.55;
+}

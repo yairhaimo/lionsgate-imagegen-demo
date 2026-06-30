@@ -19,6 +19,7 @@ export function PreviewGrid({
       />
 
       <OutputPanel
+        franchise={controller.form.franchise}
         imageUrl={controller.result.imageUrl}
         isGenerating={controller.result.isGenerating}
         isPartialImage={controller.result.isPartialImage}

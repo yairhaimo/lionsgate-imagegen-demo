@@ -1,0 +1,89 @@
+.scan,
+.bar {
+  position: absolute;
+  display: block;
+}
+
+.scan {
+  z-index: 2;
+  right: 8%;
+  left: 8%;
+  height: 18%;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgb(255 255 255 / 36%),
+    rgb(242 216 163 / 18%),
+    transparent
+  );
+  mix-blend-mode: screen;
+  animation: loader-scan 2.2s ease-in-out infinite;
+}
+
+.bar {
+  right: 12%;
+  left: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(242 216 163 / 52%),
+    rgb(255 255 255 / 34%),
+    transparent
+  );
+  opacity: 0.8;
+}
+
+.barOne {
+  top: 18%;
+  animation: loader-line 2.8s ease-in-out infinite;
+}
+
+.barTwo {
+  top: 50%;
+  animation: loader-line 2.8s ease-in-out 0.28s infinite;
+}
+
+.barThree {
+  top: 82%;
+  animation: loader-line 2.8s ease-in-out 0.56s infinite;
+}
+
+@keyframes loader-scan {
+  0%,
+  100% {
+    top: -18%;
+    opacity: 0;
+  }
+
+  22%,
+  72% {
+    opacity: 0.9;
+  }
+
+  86% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes loader-line {
+  0%,
+  100% {
+    transform: scaleX(0.4);
+    opacity: 0.28;
+  }
+
+  48% {
+    transform: scaleX(1);
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan,
+  .bar {
+    animation: none;
+  }
+}

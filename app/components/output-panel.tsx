@@ -1,12 +1,14 @@
+import type { Franchise } from "lionsgate-club-imagegen";
 import { modeContent } from "../playground-options";
 import type { Mode } from "../playground-types";
 import styles from "../styles/preview.module.css";
 import { EmptyState } from "./empty-state";
-import { ImagePanel } from "./image-panel";
 import { Panel } from "./panel";
 import { PfpGrid } from "./pfp-grid";
+import { ShareableOutputPanel } from "./shareable-output-panel";
 
 export function OutputPanel({
+  franchise,
   imageUrl,
   isGenerating,
   isPartialImage,
@@ -14,6 +16,7 @@ export function OutputPanel({
   numOfAvatars,
   pfpUrls,
 }: {
+  franchise: Franchise;
   imageUrl: string | null;
   isGenerating: boolean;
   isPartialImage: boolean;
@@ -23,12 +26,11 @@ export function OutputPanel({
 }) {
   if (mode !== "pfp") {
     return (
-      <ImagePanel
-        alt={isPartialImage ? "Partial generated image" : "Generated image"}
-        badge={franchiseBadge({ imageUrl, isGenerating, isPartialImage })}
-        emptyLabel={modeContent.franchise.emptyResult}
-        title="Output"
-        url={imageUrl}
+      <ShareableOutputPanel
+        franchise={franchise}
+        imageUrl={imageUrl}
+        isGenerating={isGenerating}
+        isPartialImage={isPartialImage}
       />
     );
   }
@@ -63,24 +65,4 @@ function pfpBadge({
   }
 
   return isGenerating ? `${numOfAvatars} PFPs` : "Waiting";
-}
-
-function franchiseBadge({
-  imageUrl,
-  isGenerating,
-  isPartialImage,
-}: {
-  imageUrl: string | null;
-  isGenerating: boolean;
-  isPartialImage: boolean;
-}) {
-  if (imageUrl && !isPartialImage) {
-    return "Final";
-  }
-
-  if (isPartialImage) {
-    return "Blurred partial";
-  }
-
-  return isGenerating ? "Generating" : "Placeholder";
 }
