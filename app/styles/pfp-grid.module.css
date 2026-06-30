@@ -4,7 +4,7 @@
   gap: 12px;
 }
 
-.pfpGrid a {
+.thumbnailButton {
   display: block;
   overflow: hidden;
   aspect-ratio: 1;
@@ -12,14 +12,22 @@
   border-radius: 999px;
   background: #080707;
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  padding: 0;
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease;
 }
 
-.pfpGrid a:hover {
+.thumbnailButton:hover {
   border-color: #e8e0d6;
   box-shadow: 0 18px 46px rgba(232, 224, 214, 0.18);
+}
+
+.thumbnailButton:focus-visible {
+  border-color: #e8e0d6;
+  outline: 2px solid #e8e0d6;
+  outline-offset: 3px;
 }
 
 .pfpGrid img {
