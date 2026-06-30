@@ -11,11 +11,13 @@ import { ShareableLoaderOverlay } from "./shareable-loader";
 export function ShareableImageCard({
   alt,
   isPartial,
+  onOpen,
   showLoader,
   src,
 }: {
   alt: string;
   isPartial: boolean;
+  onOpen: () => void;
   showLoader: boolean;
   src: string;
 }) {
@@ -28,9 +30,10 @@ export function ShareableImageCard({
     <div className={styles.shell}>
       <div className={styles.grid} />
       <div className={styles.shadow} />
-      <div
-        aria-label={alt}
+      <button
+        aria-label={`Open ${alt}`}
         className={`${styles.stage} ${effectStyles.stage}`}
+        onClick={onOpen}
         onDragStart={(event) => event.preventDefault()}
         onLostPointerCapture={card.handleLostPointerCapture}
         onPointerCancel={card.finishTiltDrag}
@@ -38,7 +41,7 @@ export function ShareableImageCard({
         onPointerLeave={card.handlePointerLeave}
         onPointerMove={card.updateTilt}
         onPointerUp={card.finishTiltDrag}
-        role="img"
+        type="button"
       >
         <div
           className={styles.card}
@@ -66,7 +69,7 @@ export function ShareableImageCard({
           <div className={effectStyles.glare} />
           <div className={effectStyles.shine} />
         </div>
-      </div>
+      </button>
     </div>
   );
 }

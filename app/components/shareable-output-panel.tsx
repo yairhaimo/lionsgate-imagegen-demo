@@ -1,7 +1,11 @@
+"use client";
+
 import type { Franchise } from "lionsgate-club-imagegen";
+import { useState } from "react";
 import { shareablePlaceholderImages } from "../shareable-placeholders";
 import { Panel } from "./panel";
 import { ShareableImageCard } from "./shareable-image-card";
+import { ShareablePreviewDialog } from "./shareable-preview-dialog";
 
 export function ShareableOutputPanel({
   franchise,
@@ -14,6 +18,7 @@ export function ShareableOutputPanel({
   isGenerating: boolean;
   isPartialImage: boolean;
 }) {
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const placeholder = shareablePlaceholderImages[franchise];
   const src = imageUrl ?? placeholder.src;
   const alt = getShareableAlt({ imageUrl, isPartialImage, placeholder });
@@ -26,9 +31,17 @@ export function ShareableOutputPanel({
       <ShareableImageCard
         alt={alt}
         isPartial={isPartialImage}
+        onOpen={() => setPreviewUrl(src)}
         showLoader={isGenerating}
         src={src}
       />
+      {previewUrl ? (
+        <ShareablePreviewDialog
+          alt={alt}
+          onClose={() => setPreviewUrl(null)}
+          url={previewUrl}
+        />
+      ) : null}
     </Panel>
   );
 }

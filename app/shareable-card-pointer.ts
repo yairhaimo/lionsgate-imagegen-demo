@@ -2,7 +2,7 @@ import type { PointerEvent } from "react";
 
 export function updateCardTilt(
   card: HTMLDivElement,
-  event: PointerEvent<HTMLDivElement>,
+  event: PointerEvent<HTMLButtonElement>,
 ) {
   const bounds = event.currentTarget.getBoundingClientRect();
   const x = clamp((event.clientX - bounds.left) / bounds.width);
@@ -30,7 +30,7 @@ export function updateCardTilt(
   card.style.setProperty("--card-shadow-y", `${(30 + y * 18).toFixed(1)}px`);
 }
 
-export function isPointerInside(event: PointerEvent<HTMLDivElement>) {
+export function isPointerInside(event: PointerEvent<HTMLButtonElement>) {
   const bounds = event.currentTarget.getBoundingClientRect();
 
   return (
@@ -41,7 +41,7 @@ export function isPointerInside(event: PointerEvent<HTMLDivElement>) {
   );
 }
 
-export function releasePointer(event: PointerEvent<HTMLDivElement>) {
+export function releasePointer(event: PointerEvent<HTMLButtonElement>) {
   if (event.currentTarget.hasPointerCapture(event.pointerId)) {
     event.currentTarget.releasePointerCapture(event.pointerId);
   }

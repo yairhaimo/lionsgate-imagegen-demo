@@ -25,7 +25,7 @@ export function useShareableCardTilt() {
     }
   }
 
-  function updateTilt(event: PointerEvent<HTMLDivElement>) {
+  function updateTilt(event: PointerEvent<HTMLButtonElement>) {
     const card = cardRef.current;
 
     if (card && event.pointerType === "mouse") {
@@ -33,7 +33,7 @@ export function useShareableCardTilt() {
     }
   }
 
-  function startTiltDrag(event: PointerEvent<HTMLDivElement>) {
+  function startTiltDrag(event: PointerEvent<HTMLButtonElement>) {
     if (event.pointerType !== "mouse" || event.button !== 0) {
       return;
     }
@@ -44,7 +44,7 @@ export function useShareableCardTilt() {
     updateTilt(event);
   }
 
-  function finishTiltDrag(event: PointerEvent<HTMLDivElement>) {
+  function finishTiltDrag(event: PointerEvent<HTMLButtonElement>) {
     if (dragPointerIdRef.current !== event.pointerId) {
       return;
     }
@@ -57,7 +57,7 @@ export function useShareableCardTilt() {
     }
   }
 
-  function handleLostPointerCapture(event: PointerEvent<HTMLDivElement>) {
+  function handleLostPointerCapture(event: PointerEvent<HTMLButtonElement>) {
     if (dragPointerIdRef.current === event.pointerId) {
       dragPointerIdRef.current = null;
       resetTilt();

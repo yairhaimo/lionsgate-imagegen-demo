@@ -39,13 +39,22 @@
   width: 100%;
   max-width: 430px;
   aspect-ratio: 3 / 4;
+  border: 0;
+  background: transparent;
   cursor: grab;
+  padding: 0;
+  color: inherit;
   user-select: none;
   transform-style: preserve-3d;
 }
 
 .stage:active {
   cursor: grabbing;
+}
+
+.stage:focus-visible {
+  outline: 2px solid #e8e0d6;
+  outline-offset: 6px;
 }
 
 .card {
