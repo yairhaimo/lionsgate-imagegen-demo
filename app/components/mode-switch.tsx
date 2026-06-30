@@ -11,18 +11,20 @@ export function ModeSwitch({
 }) {
   return (
     <div className={styles.modeSwitch}>
-      {modeOptions.map((option) => (
-        <button
-          className={`${styles.modeButton} ${
-            mode === option.value ? styles.modeButtonActive : ""
-          }`}
-          key={option.value}
-          onClick={() => onChange(option.value)}
-          type="button"
-        >
-          {option.label}
-        </button>
-      ))}
+      <div className={styles.inner}>
+        {modeOptions.map((option) => (
+          <button
+            className={`${styles.modeButton} ${
+              mode === option.value ? styles.modeButtonActive : ""
+            }`}
+            key={option.value}
+            onClick={() => onChange(option.value)}
+            type="button"
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

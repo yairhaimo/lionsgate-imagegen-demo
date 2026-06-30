@@ -1,12 +1,17 @@
 .panel {
   align-self: start;
   display: grid;
-  gap: 1.25rem;
   border: 1px solid #3b2424;
   border-radius: 6px;
   background: rgba(19, 15, 15, 0.95);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
   padding: 1.25rem;
+}
+
+.fields {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 .field {
@@ -51,35 +56,25 @@
   padding: 10px;
 }
 
-.submitButton {
-  min-height: 48px;
+.field input[type="file"]::file-selector-button {
   border: 0;
-  border-radius: 4px;
-  background: #e8e0d6;
-  color: #130f0f;
+  border-radius: 3px;
+  background: #eee5db;
+  color: #160f0f;
   font: inherit;
   font-size: 0.875rem;
   font-weight: 900;
-  letter-spacing: 0.1em;
+  margin-right: 0.75rem;
+  min-width: 7.5rem;
+  padding: 0.5rem 0.75rem;
   text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    background 160ms ease,
-    color 160ms ease;
 }
 
-.submitButton:hover:not(:disabled) {
-  background: #ffffff;
-}
-
-.submitButton:disabled {
-  background: #574946;
-  color: #9f918c;
-  cursor: not-allowed;
-}
-
-.error {
-  margin: 0;
-  color: #ffb3b3;
-  font-weight: 700;
+.field small {
+  color: #a88f8c;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.25rem;
+  text-transform: none;
 }

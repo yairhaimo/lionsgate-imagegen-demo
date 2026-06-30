@@ -6,7 +6,7 @@ import type { ResultValues } from "./playground-types";
 
 type GenerationPayload = GenerationResult | GenerationStartResponse;
 
-export function emptyResult(status = "Idle"): ResultValues {
+export function emptyResult(status = "Ready for PFP generation"): ResultValues {
   return {
     error: null,
     generationId: null,
@@ -14,6 +14,7 @@ export function emptyResult(status = "Idle"): ResultValues {
     isGenerating: false,
     isPartialImage: false,
     pfpUrls: [],
+    requestProgress: 0,
     status,
     uploadedUrl: null,
   };
@@ -21,8 +22,9 @@ export function emptyResult(status = "Idle"): ResultValues {
 
 export function submittingResult() {
   return {
-    ...emptyResult("Submitting"),
+    ...emptyResult("Uploading portrait"),
     isGenerating: true,
+    requestProgress: 1,
   };
 }
 
@@ -45,6 +47,7 @@ export function reconnectingResult(current: ResultValues) {
 export function resultWithUpload(current: ResultValues, uploadedUrl: string) {
   return {
     ...current,
+    requestProgress: 100,
     uploadedUrl,
   };
 }

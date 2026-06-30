@@ -1,11 +1,13 @@
 import styles from "../styles/header.module.css";
 
-export function PageHeader({ status }: { status: string }) {
+export function PageHeader() {
   return (
     <header className={styles.header}>
-      <p className={styles.eyebrow}>Lionsgate Club</p>
-      <h1>Image API Playground</h1>
-      <p className={styles.status}>{status}</p>
+      <div className={styles.inner}>
+        <p className={styles.eyebrow}>Lionsgate Club</p>
+        <h1>Image Playground</h1>
+        <p className={styles.status}>API</p>
+      </div>
     </header>
   );
 }

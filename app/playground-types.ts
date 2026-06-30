@@ -24,6 +24,7 @@ export type ResultValues = {
   isGenerating: boolean;
   isPartialImage: boolean;
   pfpUrls: string[];
+  requestProgress: number;
   status: string;
   uploadedUrl: string | null;
 };
@@ -46,4 +47,11 @@ export type PlaygroundController = {
 export type SelectOption<T extends number | string> = {
   label: string;
   value: T;
+};
+
+export type ModeContent = {
+  emptyResult: string;
+  idle: string;
+  submit: string;
+  title: string;
 };

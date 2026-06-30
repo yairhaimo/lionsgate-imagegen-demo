@@ -1,0 +1,24 @@
+.statusBlock {
+  display: grid;
+  gap: 0.5rem;
+  border-top: 1px solid #3b2424;
+  color: #a88f8c;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  text-transform: uppercase;
+}
+
+.statusBlock p {
+  overflow: hidden;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.error {
+  color: #ffb3b3;
+  font-weight: 700;
+}

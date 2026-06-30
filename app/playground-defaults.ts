@@ -3,9 +3,9 @@ import type { FormValues } from "./playground-types";
 export const initialForm: FormValues = {
   file: null,
   franchise: "john_wick",
-  mode: "franchise",
+  mode: "pfp",
   name: "",
-  numOfAvatars: 4,
+  numOfAvatars: 16,
   preset: "general_image",
   quality: "high",
 };

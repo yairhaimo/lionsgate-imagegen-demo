@@ -10,19 +10,21 @@ export function PreviewGrid({
 }) {
   return (
     <section className={styles.previewGrid}>
+      <ImagePanel
+        alt="Selected user upload"
+        badge={controller.form.file ? "Loaded" : "Waiting"}
+        emptyLabel="Portrait preview"
+        title="Source"
+        url={controller.previewUrl}
+      />
+
       <OutputPanel
         imageUrl={controller.result.imageUrl}
         isGenerating={controller.result.isGenerating}
         isPartialImage={controller.result.isPartialImage}
         mode={controller.form.mode}
+        numOfAvatars={controller.form.numOfAvatars}
         pfpUrls={controller.result.pfpUrls}
-      />
-
-      <ImagePanel
-        alt="Selected user upload"
-        emptyLabel="No image selected"
-        title="Source"
-        url={controller.previewUrl}
       />
     </section>
   );

@@ -1,4 +1,5 @@
 .panel {
+  min-height: 492px;
   overflow: hidden;
   border: 1px solid #3b2424;
   border-radius: 6px;
@@ -37,13 +38,7 @@
   place-items: center;
   min-height: 316px;
   overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 18% 22%,
-      rgba(242, 216, 163, 0.12),
-      transparent 28%
-    ), linear-gradient(145deg, rgba(255, 255, 255, 0.04), transparent 44%),
-    #151111;
+  background: #151111;
 }
 
 .imageFrame img {
@@ -65,7 +60,19 @@
   text-transform: uppercase;
 }
 
+.previewBody {
+  min-height: 316px;
+  max-height: 720px;
+  overflow-y: auto;
+  background: #151111;
+  padding: 1rem;
+}
+
 @media (max-width: 900px) {
+  .panel {
+    min-height: 360px;
+  }
+
   .imageFrame {
     min-height: 320px;
   }

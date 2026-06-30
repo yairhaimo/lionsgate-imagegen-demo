@@ -4,12 +4,27 @@ import type {
   ImageQuality,
   PfpAvatarCount,
 } from "lionsgate-club-imagegen";
-import type { Mode, SelectOption } from "./playground-types";
+import type { Mode, ModeContent, SelectOption } from "./playground-types";
 
 export const modeOptions: Array<SelectOption<Mode>> = [
-  { label: "Franchise image", value: "franchise" },
-  { label: "Profile pictures", value: "pfp" },
+  { label: "Create PFP", value: "pfp" },
+  { label: "Create Shareable Image", value: "franchise" },
 ];
+
+export const modeContent: Record<Mode, ModeContent> = {
+  franchise: {
+    emptyResult: "Shareable image appears here",
+    idle: "Ready for shareable generation",
+    submit: "Create Shareable Image",
+    title: "Shareable image generator",
+  },
+  pfp: {
+    emptyResult: "PFPs appear here",
+    idle: "Ready for PFP generation",
+    submit: "Create PFP",
+    title: "PFP generator",
+  },
+};
 
 export const franchiseOptions: Array<SelectOption<Franchise>> = [
   { label: "Hunger Games", value: "hunger_games" },
@@ -28,6 +43,6 @@ export const qualityOptions: Array<SelectOption<ImageQuality>> = [
 ];
 
 export const pfpCountOptions: Array<SelectOption<PfpAvatarCount>> = [
-  { label: "4", value: 4 },
-  { label: "16", value: 16 },
+  { label: "4 PFPs", value: 4 },
+  { label: "16 PFPs", value: 16 },
 ];

@@ -1,13 +1,17 @@
 import type { FormEvent } from "react";
 import {
   franchiseOptions,
+  modeContent,
   pfpCountOptions,
   presetOptions,
   qualityOptions,
 } from "../playground-options";
 import type { PlaygroundController } from "../playground-types";
 import styles from "../styles/form.module.css";
+import actionStyles from "../styles/form-actions.module.css";
 import { FileField, SelectField, TextField } from "./form-fields";
+import { GenerationFormHeader } from "./generation-form-header";
+import { GenerationStatus } from "./generation-status";
 
 export function GenerationForm({
   controller,
@@ -23,58 +27,67 @@ export function GenerationForm({
 
   return (
     <form className={styles.panel} onSubmit={submit}>
-      {form.mode === "franchise" ? (
-        <TextField
-          label="Name"
-          onChange={controller.setName}
-          placeholder="Jane Wick"
-          value={form.name}
-        />
-      ) : null}
+      <GenerationFormHeader form={form} />
 
-      <SelectField
-        label="Franchise"
-        onChange={controller.setFranchise}
-        options={franchiseOptions}
-        value={form.franchise}
-      />
+      <div className={styles.fields}>
+        {form.mode === "franchise" ? (
+          <TextField
+            label="Name"
+            onChange={controller.setName}
+            placeholder="Jane Wick"
+            value={form.name}
+          />
+        ) : null}
 
-      <SelectField
-        label="Quality"
-        onChange={controller.setQuality}
-        options={qualityOptions}
-        value={form.quality}
-      />
-
-      {form.mode === "franchise" ? (
         <SelectField
-          label="Preset"
-          onChange={controller.setPreset}
-          options={presetOptions}
-          value={form.preset}
+          label="Franchise"
+          onChange={controller.setFranchise}
+          options={franchiseOptions}
+          value={form.franchise}
         />
-      ) : null}
 
-      {form.mode === "pfp" ? (
         <SelectField
-          label="PFP count"
-          onChange={controller.setNumOfAvatars}
-          options={pfpCountOptions}
-          value={form.numOfAvatars}
+          hint="Higher quality can increase generation time."
+          label="Quality"
+          onChange={controller.setQuality}
+          options={qualityOptions}
+          value={form.quality}
         />
-      ) : null}
 
-      <FileField onChange={controller.selectFile} />
+        {form.mode === "franchise" ? (
+          <SelectField
+            label="Preset"
+            onChange={controller.setPreset}
+            options={presetOptions}
+            value={form.preset}
+          />
+        ) : null}
+
+        {form.mode === "pfp" ? (
+          <SelectField
+            label="PFP count"
+            onChange={controller.setNumOfAvatars}
+            options={pfpCountOptions}
+            value={form.numOfAvatars}
+          />
+        ) : null}
+
+        <FileField onChange={controller.selectFile} />
+      </div>
+
+      <div className={actionStyles.progress}>
+        <span style={{ width: `${result.requestProgress}%` }} />
+      </div>
 
       <button
-        className={styles.submitButton}
+        className={actionStyles.submitButton}
         disabled={!canGenerate}
         type="submit"
       >
-        {result.isGenerating ? "Generating" : "Generate"}
+        {result.isGenerating ? "Generating" : modeContent[form.mode].submit}
       </button>
 
-      {result.error ? <p className={styles.error}>{result.error}</p> : null}
+      <GenerationStatus result={result} />
     </form>
   );
 }

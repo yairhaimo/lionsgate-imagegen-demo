@@ -15,8 +15,10 @@ export function ResultUrls({
 
   return (
     <dl className={styles.urls}>
-      <ResultUrl label="Generation ID" value={result.generationId} />
-      <ResultUrl label="Uploaded image URL" value={result.uploadedUrl} />
+      <ResultUrl
+        label="Upload URL"
+        value={result.uploadedUrl ?? "Not uploaded"}
+      />
       <ResultUrl label="Result URL" value={resultUrl} />
     </dl>
   );

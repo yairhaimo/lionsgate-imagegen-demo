@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { initialForm } from "./playground-defaults";
+import { modeContent } from "./playground-options";
 import { emptyResult, failedResult } from "./playground-result";
 import type {
   FormValues,
@@ -37,9 +38,9 @@ export function usePlayground(): PlaygroundController {
     closeStreamRef.current = null;
   }
 
-  function resetResult() {
+  function resetResult(status = modeContent[form.mode].idle) {
     closeStream();
-    setResult(emptyResult());
+    setResult(emptyResult(status));
   }
 
   function updateForm(patch: Partial<FormValues>) {
@@ -58,7 +59,7 @@ export function usePlayground(): PlaygroundController {
     }
 
     updateForm({ mode });
-    resetResult();
+    resetResult(modeContent[mode].idle);
   }
 
   async function submit() {

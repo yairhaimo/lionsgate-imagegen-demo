@@ -13,16 +13,18 @@ export function PlaygroundView({
 }) {
   return (
     <main className={styles.page}>
-      <PageHeader status={controller.result.status} />
+      <PageHeader />
       <ModeSwitch
         mode={controller.form.mode}
         onChange={controller.selectMode}
       />
       <div className={styles.layout}>
         <GenerationForm controller={controller} />
-        <PreviewGrid controller={controller} />
+        <section className={styles.previewArea}>
+          <PreviewGrid controller={controller} />
+          <ResultUrls form={controller.form} result={controller.result} />
+        </section>
       </div>
-      <ResultUrls form={controller.form} result={controller.result} />
     </main>
   );
 }

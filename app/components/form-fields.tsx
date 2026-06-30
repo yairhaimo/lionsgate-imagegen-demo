@@ -25,11 +25,13 @@ export function TextField({
 }
 
 export function SelectField<T extends number | string>({
+  hint,
   label,
   onChange,
   options,
   value,
 }: {
+  hint?: string;
   label: string;
   onChange: (value: T) => void;
   options: Array<SelectOption<T>>;
@@ -53,6 +55,7 @@ export function SelectField<T extends number | string>({
           </option>
         ))}
       </select>
+      {hint ? <small>{hint}</small> : null}
     </label>
   );
 }

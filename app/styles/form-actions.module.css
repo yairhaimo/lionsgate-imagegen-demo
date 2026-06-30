@@ -1,0 +1,42 @@
+.progress {
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #332423;
+  margin-top: 1.25rem;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: #c9c0b8;
+  transition: width 160ms ease;
+}
+
+.submitButton {
+  min-height: 48px;
+  border: 0;
+  border-radius: 4px;
+  background: #e8e0d6;
+  color: #130f0f;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+  margin-top: 1.25rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #ffffff;
+}
+
+.submitButton:disabled {
+  background: #574946;
+  color: #9f918c;
+  cursor: not-allowed;
+}
